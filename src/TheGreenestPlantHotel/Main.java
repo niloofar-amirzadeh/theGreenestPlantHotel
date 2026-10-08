@@ -3,6 +3,7 @@ package TheGreenestPlantHotel;
 import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class Main {
 
@@ -19,9 +20,11 @@ public class Main {
     private static final String QUESTION = "Which plant should receive liquid?";
     private static final String TITLE = "Name of plant";
     private static final String EMPTY_NAME_MESSAGE = "Please enter a plant name. ";
-    private static final String PLANT_NOT_FOUND_MESSAGE = "Plant not found. ";
+    private static final String RESULT_FORMAT = "%s needs %.2f liters of %s per day.";
     private static final String QUESTION2 = "Do you want information about another plant?";
     private static final String TITLE2 = "Continue?";
+    private static final String PLANT_NOT_FOUND_MESSAGE = "Plant not found. ";
+
 
 
     public static void main(String[] args) {
@@ -39,7 +42,6 @@ public class Main {
         plants.add(meatloaf);
         plants.add(olof);
 
-
         while (true) {
             String plantName = JOptionPane.showInputDialog(
                     null, QUESTION, TITLE,
@@ -47,6 +49,7 @@ public class Main {
             if (plantName == null) {
                 return;
             }
+            plantName = plantName.trim();
             if (plantName.isBlank()) {
                 JOptionPane.showMessageDialog(null, EMPTY_NAME_MESSAGE);
                 continue;
@@ -58,12 +61,13 @@ public class Main {
                     String name =
                             plant.getName().substring(0, 1).toUpperCase()
                                     + plant.getName().substring(1).toLowerCase();
-                    String result = name + " needs "
-                            + plant.calculateLiquidAmount()
-                            + " liters of "
-                            + plant.getLiquidType().getDisplayName()
-                            + " per day";
+                    //I need change this to String.format
+                    String result = String.format(Locale.US, RESULT_FORMAT, name,
+                            plant.calculateLiquidAmount(), plant.getLiquidType().getDisplayName());
+
                     //polymorfism : plant.calculateLiquidAmount(), plant.getLiquidType()
+                    // Polymorphism: Java calls the overridden methods
+                    // based on the actual plant type at runtime.
                     JOptionPane.showMessageDialog(null, result);
                     plantFound = true;
                     int answer = JOptionPane.showConfirmDialog(

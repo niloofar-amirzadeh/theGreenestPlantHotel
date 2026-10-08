@@ -5,8 +5,9 @@ public abstract class Plant implements Waterable {
 //I don't want a generic TheGreenestPlantHotel.Plant to be created, only specific types of Plants should be created.
 
     //Encapsulation: fields are private and accessed through public methods.
-    private String name;
-    private double heightInMeters;
+    // through read-only getters.
+    private final String name;
+    private final double heightInMeters;
 
 
     public Plant(String name, double heightInMeters) {

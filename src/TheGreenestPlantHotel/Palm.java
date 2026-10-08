@@ -1,5 +1,6 @@
 package TheGreenestPlantHotel;
 
+// Inheritance: Palm inherits common properties from Plant.
 public class Palm extends Plant {
 
     private static final double LITERS_PER_METER = 0.5;
