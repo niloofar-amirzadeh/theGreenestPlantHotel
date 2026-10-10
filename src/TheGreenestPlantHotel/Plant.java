@@ -1,8 +1,8 @@
 package TheGreenestPlantHotel;
 
 public abstract class Plant implements Waterable {
-//TheGreenestPlantHotel.Plant is a base class and accepts the TheGreenestPlantHotel.Waterable contract.
-//I don't want a generic TheGreenestPlantHotel.Plant to be created, only specific types of Plants should be created.
+//Plant is a base class and accepts the Waterable contract.
+//I don't want a generic Plant to be created, only specific types of Plants should be created.
 
     //Encapsulation: fields are private and accessed through public methods.
     // through read-only getters.

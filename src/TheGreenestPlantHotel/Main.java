@@ -25,10 +25,10 @@ public class Main {
     private static final String TITLE2 = "Continue?";
     private static final String PLANT_NOT_FOUND_MESSAGE = "Plant not found. ";
 
-
-
     public static void main(String[] args) {
-
+        runProgram();
+    }
+        static void runProgram(){
         // Polymorphism: the Plant reference calls the overridden methods
         // of the actual object (Cactus, Palm or Carnivorous).
         Plant igge = new Cactus(IGGE_NAME, UnitConverter.centimetersToMeters(IGGE_HEIGHT_CM));
@@ -58,25 +58,21 @@ public class Main {
 
             for (Plant plant : plants) {
                 if (plant.getName().equalsIgnoreCase(plantName)) {
-                    String name =
-                            plant.getName().substring(0, 1).toUpperCase()
+                    String name = plant.getName().substring(0, 1).toUpperCase()
                                     + plant.getName().substring(1).toLowerCase();
-                    //I need change this to String.format
+
+                    // Polymorphism: Java calls the overridden methods
                     String result = String.format(Locale.US, RESULT_FORMAT, name,
                             plant.calculateLiquidAmount(), plant.getLiquidType().getDisplayName());
 
-                    //polymorfism : plant.calculateLiquidAmount(), plant.getLiquidType()
-                    // Polymorphism: Java calls the overridden methods
-                    // based on the actual plant type at runtime.
                     JOptionPane.showMessageDialog(null, result);
                     plantFound = true;
                     int answer = JOptionPane.showConfirmDialog(
                             null, QUESTION2, TITLE2,
                             JOptionPane.YES_NO_OPTION);
-                    if (answer == JOptionPane.NO_OPTION) {
+                    if (answer != JOptionPane.YES_OPTION) {
                         return;
                     }
-
                     break;
                 }
             }
@@ -86,5 +82,3 @@ public class Main {
         }
     }
 }
-
-
