@@ -1,5 +1,6 @@
 package TheGreenestPlantHotel;
-
+/*An enum ensures that only predefined liquid types can be used,
+  preventing invalid values and improving type safety.*/
 public enum LiquidType {
 
     TAP_WATER("tap water"),
@@ -14,7 +15,7 @@ public enum LiquidType {
 
     public String getDisplayName() {
         return displayName;
-    }
+    } //jhkhgjg
 }
 
 

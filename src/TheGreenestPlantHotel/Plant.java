@@ -1,11 +1,11 @@
 package TheGreenestPlantHotel;
-
+/*An abstract class allows all plant types to share common properties
+ while leaving plant-specific behavior to the subclasses.*/
 public abstract class Plant implements Waterable {
-//Plant is a base class and accepts the Waterable contract.
-//I don't want a generic Plant to be created, only specific types of Plants should be created.
+/*Plant is a base class and accepts the Waterable contract.
+ I don't want a generic Plant to be created, only specific types of Plants should be created.*/
 
-    //Encapsulation: fields are private and accessed through public methods.
-    // through read-only getters.
+    // Encapsulation protects the plant's data from direct access.
     private final String name;
     private final double heightInMeters;
 
@@ -14,7 +14,7 @@ public abstract class Plant implements Waterable {
         this.name = name;
         this.heightInMeters = heightInMeters;
     }
-
+    // Getters provide controlled access to the values.
     public String getName() {
         return name;
     }

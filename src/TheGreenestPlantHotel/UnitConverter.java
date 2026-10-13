@@ -1,5 +1,6 @@
 package TheGreenestPlantHotel;
-
+/* Separating unit conversions keeps calculations reusable
+ and avoids repeating conversion logic in different classes.*/
 public class UnitConverter {
 
     private static final int CENTIMETERS_PER_METER = 100;

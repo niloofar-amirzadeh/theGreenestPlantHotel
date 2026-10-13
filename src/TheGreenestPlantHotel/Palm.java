@@ -1,6 +1,7 @@
 package TheGreenestPlantHotel;
 
-// Inheritance: Palm inherits common properties from Plant.
+/* Inheritance allows this plant type to reuse common properties
+    from Plant while providing its own liquid calculation.*/
 public class Palm extends Plant {
 
     private static final double LITERS_PER_METER = 0.5;

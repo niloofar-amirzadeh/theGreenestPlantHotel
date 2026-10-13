@@ -4,33 +4,15 @@ import javax.swing.JOptionPane;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import static TheGreenestPlantHotel.AppConstans.*;
 
 public class Main {
-
-    private static final String IGGE_NAME = "igge";
-    private static final String LAURA_NAME = "Laura";
-    private static final String MEATLOAF_NAME = "Meatloaf";
-    private static final String OLOF_NAME = "Olof";
-
-    private static final double IGGE_HEIGHT_CM = 20;
-    private static final double LAURA_HEIGHT_METERS = 5.0;
-    private static final double MEATLOAF_HEIGHT_METERS = 0.7;
-    private static final double OLOF_HEIGHT_METERS = 1.0;
-
-    private static final String QUESTION = "Which plant should receive liquid?";
-    private static final String TITLE = "Name of plant";
-    private static final String EMPTY_NAME_MESSAGE = "Please enter a plant name. ";
-    private static final String RESULT_FORMAT = "%s needs %.2f liters of %s per day.";
-    private static final String QUESTION2 = "Do you want information about another plant?";
-    private static final String TITLE2 = "Continue?";
-    private static final String PLANT_NOT_FOUND_MESSAGE = "Plant not found. ";
 
     public static void main(String[] args) {
         runProgram();
     }
         static void runProgram(){
         // Polymorphism: the Plant reference calls the overridden methods
-        // of the actual object (Cactus, Palm or Carnivorous).
         Plant igge = new Cactus(IGGE_NAME, UnitConverter.centimetersToMeters(IGGE_HEIGHT_CM));
         Plant laura = new Palm(LAURA_NAME, LAURA_HEIGHT_METERS);
         Plant meatloaf = new CarnivorousPlant(MEATLOAF_NAME, MEATLOAF_HEIGHT_METERS);
@@ -61,7 +43,8 @@ public class Main {
                     String name = plant.getName().substring(0, 1).toUpperCase()
                                     + plant.getName().substring(1).toLowerCase();
 
-                    // Polymorphism: Java calls the overridden methods
+                    /* Polymorphism allows the same method call to produce different results
+                       depending on the actual plant type.*/
                     String result = String.format(Locale.US, RESULT_FORMAT, name,
                             plant.calculateLiquidAmount(), plant.getLiquidType().getDisplayName());
 
