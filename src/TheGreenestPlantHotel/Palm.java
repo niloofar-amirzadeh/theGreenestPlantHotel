@@ -1,5 +1,4 @@
 package TheGreenestPlantHotel;
-
 /* Inheritance allows this plant type to reuse common properties
     from Plant while providing its own liquid calculation.*/
 public class Palm extends Plant {

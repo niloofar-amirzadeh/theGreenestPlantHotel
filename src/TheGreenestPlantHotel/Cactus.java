@@ -10,7 +10,7 @@ public class Cactus extends Plant {
 
     @Override
     public double calculateLiquidAmount(){
-       return UnitConverter.centiliterToLiter(CENTILITER_PER_DAY);
+       return UnitConverter.centilitersToLiter(CENTILITER_PER_DAY);
     }
     @Override
     public LiquidType getLiquidType() {

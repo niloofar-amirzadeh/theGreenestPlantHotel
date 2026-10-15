@@ -15,7 +15,7 @@ public enum LiquidType {
 
     public String getDisplayName() {
         return displayName;
-    } //jhkhgjg
+    }
 }
 
 
